@@ -29,11 +29,13 @@ public class Wage implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private String employeeId;
+    private String department;
 
     private String name;
 
-    private Integer basic_wage;
+    private Integer month;
+
+    private Integer basicWage;
 
     private Integer overtime;
 

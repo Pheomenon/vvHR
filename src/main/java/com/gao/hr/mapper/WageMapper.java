@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author gao
  * @since 2020-04-14
  */
-public interface PayMapper extends BaseMapper<Wage> {
+public interface WageMapper extends BaseMapper<Wage> {
 
 }

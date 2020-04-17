@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author gao
  * @since 2020-04-14
  */
-public interface PayService extends IService<Wage> {
+public interface WageService extends IService<Wage> {
 
 }
