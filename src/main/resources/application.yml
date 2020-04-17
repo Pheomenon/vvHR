@@ -1,0 +1,13 @@
+server:
+  port: 4444
+spring:
+  application:
+    name: HR
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.56.74:3306/hr?characterEncoding=utf-8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
