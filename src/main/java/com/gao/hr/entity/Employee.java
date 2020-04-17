@@ -27,23 +27,24 @@ public class Employee implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     private String name;
 
-    private String sex;
+    private Integer sex;
 
     private Integer age;
 
     private String idCard;
 
-    private Date born;
+    private String born;
 
     private String nation;
 
-    private String marriage;
+    private Integer marriage;
 
-    private String politicalStatus;
+    private Integer politicalStatus;
 
     private String hometown;
 
@@ -59,8 +60,12 @@ public class Employee implements Serializable {
 
     private Date startTime;
 
+    @TableField(fill = FieldFill.INSERT)
+    private String departmentName;
+
     private String typeWork;
 
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date createTime;
 
     private String bz;

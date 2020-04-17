@@ -36,13 +36,13 @@ public class DepartmentController {
         return R.ok().data(map);
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     public R getCj(@PathVariable Integer id){
         Department department = departmentService.getById(id);
         return R.ok().data("department", department);
     }
 
-    @PutMapping("/updateDepartment")
+    @PutMapping()
     public R updateDepartment(@RequestBody Department department) {
         if (departmentService.updateById(department)) {
             return R.ok();
@@ -60,7 +60,7 @@ public class DepartmentController {
         }
     }
 
-    @PostMapping("/addDepartment")
+    @PostMapping()
     public R addCj(@RequestBody Department department) {
         if (departmentService.save(department)) {
             return R.ok();

@@ -20,6 +20,6 @@ public class LoginController {
     //info
     @GetMapping("/info")
     public R info(){
-        return R.ok().data("roles","[admin]").data("name","admin").data("avatar","C:\\Users\\Gao\\Desktop\\20150810224146_zJEhY.jpeg");
+        return R.ok().data("roles","[admin]").data("name","admin").data("avatar","https://edu-102.oss-cn-beijing.aliyuncs.com/2020/04/17/3ff94ad478434ef8883147a6ecacaa801.jpeg");
     }
 }

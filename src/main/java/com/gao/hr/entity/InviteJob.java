@@ -21,7 +21,6 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("tb_inviteJob")
 @ApiModel(value="招聘", description="")
 public class InviteJob implements Serializable {
 
@@ -32,33 +31,17 @@ public class InviteJob implements Serializable {
 
     private String name;
 
-    private String sex;
+    private Integer sex;
 
-    private Integer age;
-
-    private String born;
-
-    private String job;
-
-    private String specialty;
-
-    private String experience;
-
-    private String education;
-
-    private String graduatedSchool;
-
-    private String tel;
-
-    private String address;
-
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
-    private String content;
-
+    @TableField(fill = FieldFill.INSERT)
     private Integer isHire;
 
     @TableField(fill = FieldFill.INSERT)
     @TableLogic
     private Integer isDeleted;
+
+    private String resumeUrl;
 }

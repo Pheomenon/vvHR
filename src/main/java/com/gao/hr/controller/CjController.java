@@ -46,7 +46,7 @@ public class CjController {
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public R deleteCj(@PathVariable Integer id) {
         if (cjService.removeById(id)) {
             return R.ok();
@@ -55,7 +55,7 @@ public class CjController {
         }
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     public R getCj(@PathVariable Integer id){
         Cj cj = cjService.getById(id);
         return R.ok().data("cj", cj);
@@ -64,17 +64,17 @@ public class CjController {
     @PostMapping("/search/{current}/{limit}")
     public R pageCjCondition(@PathVariable long current,
                              @PathVariable long limit,
-                             @RequestBody(required = false) Map CjCondition) {
+                             @RequestBody(required = false) Map cjCondition) {
         Page<Cj> cjPage = new Page<>(current, limit);
         QueryWrapper<Cj> wrapper = new QueryWrapper<>();
-        if (CjCondition.get("type") != null) {
-            wrapper.eq("type", CjCondition.get("type").toString());
+        if (cjCondition.get("type") != null) {
+            wrapper.eq("type", cjCondition.get("type").toString());
         }
-        if (CjCondition.get("begin") != null) {
-            wrapper.gt("time", CjCondition.get("begin").toString());
+        if (cjCondition.get("begin") != null) {
+            wrapper.gt("time", cjCondition.get("begin").toString());
         }
-        if (CjCondition.get("end") != null) {
-            wrapper.le("time", CjCondition.get("end").toString());
+        if (cjCondition.get("end") != null) {
+            wrapper.le("time", cjCondition.get("end").toString());
         }
         wrapper.orderByDesc("time");
         cjService.page(cjPage, wrapper);
