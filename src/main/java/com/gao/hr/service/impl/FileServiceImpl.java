@@ -21,11 +21,8 @@ import java.util.UUID;
 @Service
 public class FileServiceImpl implements FileService {
 
-    @Autowired
-    private InviteJobService inviteJobService;
-
     @Override
-    public Boolean uploadFile(MultipartFile file) {
+    public String uploadFile(MultipartFile file) {
         String endpoint = ConstantPropertiesUtils.END_POINT;
         String accessKeyId = ConstantPropertiesUtils.ACCESS_KEY_ID;
         String accessKeySecret = ConstantPropertiesUtils.ACCESS_KEY_SECRET;
@@ -42,13 +39,10 @@ public class FileServiceImpl implements FileService {
             ossClient.putObject(bucketName, fileName, inputStream);
             ossClient.shutdown();
             String url = "https://"+bucketName+"."+endpoint+"/"+fileName;
-            InviteJob target = new InviteJob();
-            target.setResumeUrl(url);
-            inviteJobService.save(target);
-            return true;
+            return url;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 }

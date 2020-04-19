@@ -7,5 +7,5 @@ import org.springframework.web.multipart.MultipartFile;
  * @Date:2020-04-16 19:17
  */
 public interface FileService {
-    Boolean uploadFile(MultipartFile file);
+    String uploadFile(MultipartFile file);
 }

@@ -22,11 +22,7 @@ public class FileController {
 
     @PostMapping
     public R uploadOssFile(MultipartFile file){
-        if(fileService.uploadFile(file)){
-            return R.ok();
-        }
-        else {
-            return R.error();
-        }
+        String url = fileService.uploadFile(file);
+        return R.ok().data("url",url);
     }
 }

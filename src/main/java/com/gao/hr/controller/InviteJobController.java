@@ -42,7 +42,7 @@ public class InviteJobController {
 
     @PostMapping
     public R addInvite(@RequestBody InviteJob InviteJob) {
-        if (inviteJobService.updateById(InviteJob)) {
+        if (inviteJobService.save(InviteJob)) {
             return R.ok();
         } else {
             return R.error();
@@ -58,13 +58,13 @@ public class InviteJobController {
         }
     }
 
-    @GetMapping("/bind")
-    public R bindResumeWithOtherInfo(){
-        QueryWrapper<InviteJob> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("create_time");
-        InviteJob result = inviteJobService.getOne(wrapper);
-        return R.ok().data("id",result.getId());
-    }
+//    @GetMapping("/bind")
+//    public R bindResumeWithOtherInfo(){
+//        QueryWrapper<InviteJob> wrapper = new QueryWrapper<>();
+//        wrapper.orderByDesc("create_time");
+//        InviteJob result = inviteJobService.getOne(wrapper);
+//        return R.ok().data("id",result.getId());
+//    }
 
     @GetMapping("/{id}")
     public R getInvite(@PathVariable Integer id){
