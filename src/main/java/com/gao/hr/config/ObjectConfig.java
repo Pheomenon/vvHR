@@ -14,7 +14,7 @@ import java.util.Date;
 public class ObjectConfig implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
-        this.setFieldValByName("departmentName","未分配",metaObject);
+//        this.setFieldValByName("departmentName","未分配",metaObject);
         this.setFieldValByName("isHire",0,metaObject);
         this.setFieldValByName("time",new Date(),metaObject);
         this.setFieldValByName("createTime",new Date(),metaObject);

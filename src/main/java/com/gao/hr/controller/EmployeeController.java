@@ -8,6 +8,7 @@ import com.gao.hr.entity.Employee;
 import com.gao.hr.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
@@ -59,6 +60,12 @@ public class EmployeeController {
     public R getEmployee(@PathVariable Integer id){
         Employee employee = employeeService.getById(id);
         return R.ok().data("employee", employee);
+    }
+
+    @PostMapping("/importEmployeeInfo")
+    public R importEmployeeInfo(MultipartFile file){
+        employeeService.importEmployeeInfo(file,employeeService);
+        return R.ok();
     }
 
     @PostMapping("/search/{current}/{limit}")

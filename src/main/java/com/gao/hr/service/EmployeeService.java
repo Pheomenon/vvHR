@@ -2,6 +2,7 @@ package com.gao.hr.service;
 
 import com.gao.hr.entity.Employee;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface EmployeeService extends IService<Employee> {
 
+    void importEmployeeInfo(MultipartFile file, EmployeeService employeeService);
 }

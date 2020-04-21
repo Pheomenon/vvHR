@@ -60,7 +60,6 @@ public class Employee implements Serializable {
 
     private Date startTime;
 
-    @TableField(fill = FieldFill.INSERT)
     private String departmentName;
 
     private String typeWork;
