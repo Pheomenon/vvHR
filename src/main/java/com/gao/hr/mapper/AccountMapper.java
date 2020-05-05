@@ -1,6 +1,6 @@
 package com.gao.hr.mapper;
 
-import com.gao.hr.entity.Manager;
+import com.gao.hr.entity.Account;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author gao
  * @since 2020-04-14
  */
-public interface ManagerMapper extends BaseMapper<Manager> {
+public interface AccountMapper extends BaseMapper<Account> {
 
 }

@@ -21,17 +21,18 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="TbManager对象", description="")
-public class Manager implements Serializable {
+public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private String account;
+    private String username;
 
     private String password;
+
+    private String tel;
 
     @TableField(fill = FieldFill.INSERT)
     @TableLogic

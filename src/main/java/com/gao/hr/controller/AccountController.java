@@ -1,15 +1,13 @@
 package com.gao.hr.controller;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.gao.hr.common.R;
-import com.gao.hr.entity.Manager;
-import com.gao.hr.service.ManagerService;
+import com.gao.hr.entity.Account;
+import com.gao.hr.entity.vo.AccountVo;
+import com.gao.hr.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 /**
  * @Author:Gao
@@ -18,32 +16,29 @@ import java.util.Map;
 @CrossOrigin
 @RestController
 @RequestMapping("/user")
-public class LoginController {
+public class AccountController {
 
     @Autowired
     private BCryptPasswordEncoder encoder;
 
     @Autowired
-    private ManagerService managerService;
+    private AccountService accountService;
 
     @PostMapping("/registry")
-    public R registry(@RequestBody Manager manager){
-        manager.setPassword(encoder.encode(manager.getPassword()));
-        managerService.save(manager);
+    public R registry(@RequestBody Account account){
+        account.setPassword(encoder.encode(account.getPassword()));
+        accountService.save(account);
         return R.ok();
     }
 
     //login
     @PostMapping("/login")
-    public R login(){
-//        QueryWrapper<Manager> wrapper = new QueryWrapper<>();
-//        wrapper.eq("account",manager.getAccount());
-//        Boolean flag = false;
-//        if(managerService.getObj(wrapper) != null){
-//             flag = encoder.matches(manager.getPassword(),managerService.getOne(wrapper).getPassword());
-//        }
-//        if(flag)
-        return R.ok().data("token","admin");
+    public R login(@RequestBody AccountVo accountVo){
+        if(accountService.login(accountVo.getUsername(),accountVo.getPassword())){
+            return R.ok().data("token","admin");
+        }else {
+            return R.error().message("用户名或密码错误");
+        }
     }
 
     //info

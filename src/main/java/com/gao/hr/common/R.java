@@ -38,6 +38,11 @@ public class R {
         return this;
     }
 
+    public R message(String message){
+        this.setMessage(message);
+        return this;
+    }
+
     public R code(Integer code){
         this.setCode(code);
         return this;
