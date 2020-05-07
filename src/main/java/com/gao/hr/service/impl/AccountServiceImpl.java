@@ -1,6 +1,7 @@
 package com.gao.hr.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.gao.hr.common.MyException;
 import com.gao.hr.entity.Account;
 import com.gao.hr.entity.vo.ModifyAccountVo;
 import com.gao.hr.mapper.AccountMapper;
@@ -42,13 +43,16 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
         QueryWrapper<Account> wrapper = new QueryWrapper<>();
         wrapper.eq("username",modifyAccountVo.getUsername());
         Account account = baseMapper.selectOne(wrapper);
-        if(modifyAccountVo.getCode().equals(redisTemplate.opsForValue().get(account.getTel()))){
-            account.setPassword(encoder.encode(modifyAccountVo.getPassword()));
-            baseMapper.updateById(account);
-            return true;
+        if(account != null){
+            if(modifyAccountVo.getCode().equals(redisTemplate.opsForValue().get(account.getTel()))){
+                account.setPassword(encoder.encode(modifyAccountVo.getPassword()));
+                baseMapper.updateById(account);
+                return true;
+            }
+            else throw new MyException(20003,"验证码错误");
         }
         else {
-            return false;
+            throw new MyException(20007,"用户名或密码错误");
         }
     }
 }
