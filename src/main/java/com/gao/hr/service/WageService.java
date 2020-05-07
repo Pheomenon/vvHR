@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface WageService extends IService<Wage> {
 
+    void checkRecordExist(Wage wage);
 }

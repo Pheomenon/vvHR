@@ -62,6 +62,18 @@ public class EmployeeController {
         return R.ok().data("employee", employee);
     }
 
+    @PostMapping("/{employeeName}")
+    public R employeeExist(@PathVariable String employeeName){
+        QueryWrapper<Employee> wrapper = new QueryWrapper<>();
+        wrapper.eq("name",employeeName);
+        if(employeeService.getOne(wrapper) != null){
+            return R.ok();
+        }else {
+            return R.error().message("该员工不存在，请先在员工库中添加员工");
+        }
+
+    }
+
     @PostMapping("/importEmployeeInfo")
     public R importEmployeeInfo(MultipartFile file){
         employeeService.importEmployeeInfo(file,employeeService);

@@ -3,6 +3,7 @@ package com.gao.hr.entity;
 import com.baomidou.mybatisplus.annotation.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,17 +36,15 @@ public class Wage implements Serializable {
 
     private Integer month;
 
-    private Integer basicWage;
+    private BigDecimal basicWage;
 
-    private Integer overtime;
+    private BigDecimal overtime;
 
-    private Integer age;
+    private BigDecimal payCheck;
 
-    private Integer payCheck;
+    private BigDecimal payAbsent;
 
-    private Integer payAbsent;
-
-    private Integer paySafety;
+    private BigDecimal paySafety;
 
     @TableField(fill = FieldFill.INSERT)
     @TableLogic
