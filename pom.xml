@@ -11,6 +11,7 @@
     <groupId>com.gao</groupId>
     <artifactId>hr</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>hr</name>
     <description>hr</description>
 
@@ -119,6 +120,7 @@
     </dependencies>
 
     <build>
+        <finalName>hr</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

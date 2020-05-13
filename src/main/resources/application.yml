@@ -24,6 +24,10 @@ spring:
           #最大阻塞等待时间(负数表示没限制)
           max-idle: 5
           min-idle: 0
+  servlet:
+    multipart:
+      max-file-size: 16MB
+      max-request-size: 16MB
 aliyun:
   oss:
     file:
