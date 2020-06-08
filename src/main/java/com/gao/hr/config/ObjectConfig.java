@@ -12,17 +12,20 @@ import java.util.Date;
  */
 @Component
 public class ObjectConfig implements MetaObjectHandler {
+    public static final ThreadLocal<Date> dateThreadLocal = ThreadLocal.withInitial(Date::new);
+
     @Override
     public void insertFill(MetaObject metaObject) {
+
 //        this.setFieldValByName("departmentName","未分配",metaObject);
         this.setFieldValByName("isHire",0,metaObject);
-        this.setFieldValByName("time",new Date(),metaObject);
-        this.setFieldValByName("createTime",new Date(),metaObject);
+        this.setFieldValByName("time",dateThreadLocal.get(),metaObject);
+        this.setFieldValByName("createTime",dateThreadLocal.get(),metaObject);
         this.setFieldValByName("isDeleted",0,metaObject);
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
-        this.setFieldValByName("createTime",new Date(),metaObject);
+        this.setFieldValByName("createTime",dateThreadLocal.get(),metaObject);
     }
 }

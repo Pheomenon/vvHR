@@ -16,13 +16,20 @@ public class GlobalExceptionHandler {
         return R.error().message("执行了全局异常处理");
     }
 
-    //自定义异常
     @ExceptionHandler(MyException.class)
     @ResponseBody
     public R error(MyException e) {
         log.error(e.getMessage());
         e.printStackTrace();
         return R.error().code(e.getCode()).message(e.getMsg());
+    }
+
+    @ExceptionHandler(MyIllegalAccessException.class)
+    @ResponseBody
+    public R error(MyIllegalAccessException e) {
+        log.error(e.getMessage());
+        e.printStackTrace();
+        return R.error().data("code", 50008);
     }
 
 }

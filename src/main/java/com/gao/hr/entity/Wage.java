@@ -12,9 +12,6 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * <p>
- * 
- * </p>
  *
  * @author gao
  * @since 2020-04-14
@@ -33,6 +30,8 @@ public class Wage implements Serializable {
     private String department;
 
     private String name;
+
+    private Integer year;
 
     private Integer month;
 

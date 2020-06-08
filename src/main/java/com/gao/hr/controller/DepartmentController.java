@@ -1,20 +1,18 @@
 package com.gao.hr.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.gao.hr.common.MyException;
 import com.gao.hr.common.R;
 import com.gao.hr.entity.Department;
 import com.gao.hr.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * <p>
- * 前端控制器
- * </p>
  *
  * @author gao
  * @since 2020-04-14
@@ -27,7 +25,7 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     @GetMapping
-    public R addDepartment() {
+    public R getDepartment() {
         QueryWrapper<Department> wrapper = new QueryWrapper<>();
         List<Department> list = departmentService.list(wrapper);
         Map map = new HashMap();
@@ -61,7 +59,7 @@ public class DepartmentController {
     }
 
     @PostMapping()
-    public R addCj(@RequestBody Department department) {
+    public R addDepartment(@RequestBody Department department) {
         if (departmentService.save(department)) {
             return R.ok();
         } else {

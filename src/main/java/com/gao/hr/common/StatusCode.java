@@ -7,4 +7,5 @@ package com.gao.hr.common;
 public interface StatusCode {
     public static Integer SUCCESS = 20000;
     public static Integer ERROR = 20001;
+    public static Integer IllegalAccess = 50008;
 }

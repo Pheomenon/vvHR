@@ -34,11 +34,8 @@ public class AccountController {
     //login
     @PostMapping("/login")
     public R login(@RequestBody AccountVo accountVo){
-        if(accountService.login(accountVo.getUsername(),accountVo.getPassword())){
-            return R.ok().data("token","admin");
-        }else {
-            return R.error().message("用户名或密码错误");
-        }
+        String token = accountService.login(accountVo.getUsername(),accountVo.getPassword());
+        return R.ok().data("token",token);
     }
 
     //info

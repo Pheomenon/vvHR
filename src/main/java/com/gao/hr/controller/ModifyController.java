@@ -26,7 +26,6 @@ public class ModifyController {
     @Autowired
     private AccountService accountService;
 
-    //发送短信
     @PostMapping("/msm")
     public R sendMsm(@RequestBody AccountVo accountVo){
         String code = RandomUtil.getSixBitRandom();

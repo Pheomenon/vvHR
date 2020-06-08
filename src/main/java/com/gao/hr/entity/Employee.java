@@ -10,9 +10,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * <p>
- * 
- * </p>
  *
  * @author gao
  * @since 2020-04-14

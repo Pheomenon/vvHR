@@ -14,15 +14,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <p>
- *  前端控制器
- * </p>
- *
  * @author gao
  * @since 2020-04-14
  */
 @RestController
-@CrossOrigin
+//@CrossOrigin
 @RequestMapping("/wage")
 public class WageController {
     @Autowired

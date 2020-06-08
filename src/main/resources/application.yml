@@ -35,3 +35,7 @@ aliyun:
       keyid: LTAI4GFBgPprPqBTC7gc5NTE
       keysecret: yNrZsSpHNqgw5Qa7iiW1uAa6HGy5iH
       bucketname: edu-102
+jwt:
+  config:
+    key: AKAKILLA
+    ttl: 10800000

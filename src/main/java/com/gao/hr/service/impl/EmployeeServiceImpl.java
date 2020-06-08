@@ -13,9 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.InputStream;
 
 /**
- * <p>
- * 服务实现类
- * </p>
  *
  * @author gao
  * @since 2020-04-14
