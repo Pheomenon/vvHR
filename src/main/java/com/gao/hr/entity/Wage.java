@@ -27,13 +27,11 @@ public class Wage implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private String department;
+    private String departmentName;
 
     private String name;
 
-    private Integer year;
-
-    private Integer month;
+    private String date;
 
     private BigDecimal basicWage;
 
@@ -41,9 +39,11 @@ public class Wage implements Serializable {
 
     private BigDecimal payCheck;
 
-    private BigDecimal payAbsent;
+    private BigDecimal fine;
 
-    private BigDecimal paySafety;
+    private BigDecimal bonus;
+
+    private String idCard;
 
     @TableField(fill = FieldFill.INSERT)
     @TableLogic

@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
  * @author gao
  * @since 2020-04-14
  */
@@ -64,7 +63,7 @@ public class InviteJobController {
 //    }
 
     @GetMapping("/{id}")
-    public R getInvite(@PathVariable Integer id){
+    public R getInvite(@PathVariable Integer id) {
         InviteJob inviteJob = inviteJobService.getById(id);
         return R.ok().data("invite", inviteJob);
     }

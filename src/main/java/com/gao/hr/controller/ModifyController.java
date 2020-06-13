@@ -27,18 +27,18 @@ public class ModifyController {
     private AccountService accountService;
 
     @PostMapping("/msm")
-    public R sendMsm(@RequestBody AccountVo accountVo){
+    public R sendMsm(@RequestBody AccountVo accountVo) {
         String code = RandomUtil.getSixBitRandom();
-        Map<String,Object> param = new HashMap<>();
-        param.put("code",code);
-        modifyService.send(param,accountVo);
+        Map<String, Object> param = new HashMap<>();
+        param.put("code", code);
+        modifyService.send(param, accountVo);
         return R.ok().message("验证码已发送注意查收");
     }
 
     @PostMapping("/check")
-    public R check(@RequestBody ModifyAccountVo modifyAccountVo){
+    public R check(@RequestBody ModifyAccountVo modifyAccountVo) {
         boolean flag = accountService.check(modifyAccountVo);
-        if(flag)
+        if (flag)
             return R.ok().message("修改成功");
         else
             return R.error().message("验证码错误");

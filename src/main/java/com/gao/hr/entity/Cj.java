@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -30,7 +31,15 @@ public class Cj implements Serializable {
 
     private String content;
 
-    private String money;
+    private BigDecimal money;
+
+    private String name;
+
+    private String idCard;
+
+    private String departmentName;
+
+    private String date;
 
     @TableField(fill = FieldFill.INSERT)
     private Date time;

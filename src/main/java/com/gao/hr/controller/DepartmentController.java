@@ -24,6 +24,12 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
+    private HashMap<String,String> recordBeforeModification;
+
+    public DepartmentController(HashMap<String,String> recordBeforeModification){
+        this.recordBeforeModification = recordBeforeModification;
+    }
+
     @GetMapping
     public R getDepartment() {
         QueryWrapper<Department> wrapper = new QueryWrapper<>();
@@ -37,11 +43,15 @@ public class DepartmentController {
     @GetMapping("/{id}")
     public R getCj(@PathVariable Integer id){
         Department department = departmentService.getById(id);
+        recordBeforeModification.put("name",department.getName());
         return R.ok().data("department", department);
     }
 
     @PutMapping()
     public R updateDepartment(@RequestBody Department department) {
+        if(!recordBeforeModification.get("name").equals(department.getName())){
+            departmentService.checkExist(department);
+        }
         if (departmentService.updateById(department)) {
             return R.ok();
         } else {
@@ -60,6 +70,7 @@ public class DepartmentController {
 
     @PostMapping()
     public R addDepartment(@RequestBody Department department) {
+        departmentService.checkExist(department);
         if (departmentService.save(department)) {
             return R.ok();
         } else {

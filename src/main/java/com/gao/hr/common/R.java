@@ -14,10 +14,12 @@ public class R {
     private Boolean success;
     private Integer code;
     private String message;
-    private Map<String,Object> data = new HashMap<String,Object>();
-    private R(){}
+    private Map<String, Object> data = new HashMap<String, Object>();
 
-    public static R ok(){
+    private R() {
+    }
+
+    public static R ok() {
         R r = new R();
         r.setSuccess(true);
         r.setCode(StatusCode.SUCCESS);
@@ -25,7 +27,7 @@ public class R {
         return r;
     }
 
-    public static R error(){
+    public static R error() {
         R r = new R();
         r.setSuccess(false);
         r.setCode(StatusCode.ERROR);
@@ -33,27 +35,27 @@ public class R {
         return r;
     }
 
-    public R success(String message){
+    public R success(String message) {
         this.setMessage(message);
         return this;
     }
 
-    public R message(String message){
+    public R message(String message) {
         this.setMessage(message);
         return this;
     }
 
-    public R code(Integer code){
+    public R code(Integer code) {
         this.setCode(code);
         return this;
     }
 
-    public R data(String key,Object value){
+    public R data(String key, Object value) {
         this.data.put(key, value);
         return this;
     }
 
-    public R data(Map<String,Object> map){
+    public R data(Map<String, Object> map) {
         this.setData(map);
         return this;
     }

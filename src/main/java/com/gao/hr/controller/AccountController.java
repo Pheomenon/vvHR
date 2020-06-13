@@ -25,7 +25,7 @@ public class AccountController {
     private AccountService accountService;
 
     @PostMapping("/registry")
-    public R registry(@RequestBody Account account){
+    public R registry(@RequestBody Account account) {
         account.setPassword(encoder.encode(account.getPassword()));
         accountService.save(account);
         return R.ok();
@@ -33,14 +33,14 @@ public class AccountController {
 
     //login
     @PostMapping("/login")
-    public R login(@RequestBody AccountVo accountVo){
-        String token = accountService.login(accountVo.getUsername(),accountVo.getPassword());
-        return R.ok().data("token",token);
+    public R login(@RequestBody AccountVo accountVo) {
+        String token = accountService.login(accountVo.getUsername(), accountVo.getPassword());
+        return R.ok().data("token", token);
     }
 
     //info
     @GetMapping("/info")
-    public R info(){
-        return R.ok().data("roles","[admin]").data("name","admin").data("avatar","https://edu-102.oss-cn-beijing.aliyuncs.com/2020/04/17/3ff94ad478434ef8883147a6ecacaa801.jpeg");
+    public R info() {
+        return R.ok().data("roles", "[admin]").data("name", "admin").data("avatar", "https://edu-102.oss-cn-beijing.aliyuncs.com/2020/04/17/3ff94ad478434ef8883147a6ecacaa801.jpeg");
     }
 }

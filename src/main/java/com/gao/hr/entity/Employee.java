@@ -31,6 +31,10 @@ public class Employee implements Serializable {
 
     private Integer age;
 
+    private Integer level;
+
+    private String position;
+
     private String idCard;
 
     private String born;
@@ -56,8 +60,6 @@ public class Employee implements Serializable {
     private Date startTime;
 
     private String departmentName;
-
-    private String typeWork;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date createTime;

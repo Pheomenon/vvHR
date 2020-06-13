@@ -47,4 +47,10 @@ public class EmployeeInfo {
 
     @ExcelProperty("婚姻状况")
     private String marriage;
+
+    @ExcelProperty("职级")
+    private String level;
+
+    @ExcelProperty("职位")
+    private String position;
 }

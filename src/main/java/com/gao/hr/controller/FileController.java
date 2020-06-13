@@ -21,8 +21,8 @@ public class FileController {
     private FileService fileService;
 
     @PostMapping
-    public R uploadOssFile(MultipartFile file){
+    public R uploadOssFile(MultipartFile file) {
         String url = fileService.uploadFile(file);
-        return R.ok().data("url",url);
+        return R.ok().data("url", url);
     }
 }

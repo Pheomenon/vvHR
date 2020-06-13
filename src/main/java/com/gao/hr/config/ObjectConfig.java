@@ -18,6 +18,7 @@ public class ObjectConfig implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
 
 //        this.setFieldValByName("departmentName","未分配",metaObject);
+//        this.setFieldValByName("portraitUrl","https://edu-102.oss-cn-beijing.aliyuncs.com/defaultUserIcon.jpg",metaObject);
         this.setFieldValByName("isHire",0,metaObject);
         this.setFieldValByName("time",dateThreadLocal.get(),metaObject);
         this.setFieldValByName("createTime",dateThreadLocal.get(),metaObject);
