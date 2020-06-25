@@ -9,6 +9,10 @@ import java.util.Random;
  */
 public class RandomUtil {
 
+    private static final Integer MAX = 1000000;
+
+    private static final Integer MIN = 100000;
+
     private static final Random random = new Random();
 
     private static final DecimalFormat fourdf = new DecimalFormat("0000");
@@ -20,6 +24,6 @@ public class RandomUtil {
     }
 
     public static String getSixBitRandom() {
-        return sixdf.format(random.nextInt(1000000));
+        return sixdf.format(random.nextInt(MAX-MIN)+MIN);
     }
 }

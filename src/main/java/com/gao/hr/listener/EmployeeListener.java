@@ -37,22 +37,22 @@ public class EmployeeListener extends AnalysisEventListener<EmployeeInfo> {
         }
         if(employeeInfo.getLevel() != null){
             if(employeeInfo.getLevel().equals("一级")){
-                employee.setPoliticalStatus(1);
+                employee.setLevel(1);
             }
-            if(employeeInfo.getLevel().equals("二级")){
-                employee.setPoliticalStatus(2);
+            else if(employeeInfo.getLevel().equals("二级")){
+                employee.setLevel(2);
             }
-            if(employeeInfo.getLevel().equals("三级")){
-                employee.setPoliticalStatus(3);
+            else if(employeeInfo.getLevel().equals("三级")){
+                employee.setLevel(3);
             }
-            if(employeeInfo.getLevel().equals("四级")){
-                employee.setPoliticalStatus(4);
+            else if(employeeInfo.getLevel().equals("四级")){
+                employee.setLevel(4);
             }
-            if(employeeInfo.getLevel().equals("五级")){
-                employee.setPoliticalStatus(5);
+            else if(employeeInfo.getLevel().equals("五级")){
+                employee.setLevel(5);
             }
             else{
-                employee.setPoliticalStatus(1);
+                employee.setLevel(1);
             }
         }
         if(employeeInfo.getPoliticalStatus() != null){
